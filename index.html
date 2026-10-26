@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SRC Turf – Book Your Playing Slot</title>
+<meta name="description" content="Book your playing slot online at SRC Turf. High-grade synthetic turf for matches, community games and team training.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#006b2c;
+  --ink:#000;
+  --muted:#3e4a3d;
+  --surface:#eff4ff;
+  --surface-2:#e5eeff;
+  --slate:#565e74;
+  --white:#fff;
+  --font-head:'Plus Jakarta Sans',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --font-mono:'Liberation Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --pad:48px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;min-height:100vh}
+h1,h2,h3,p{margin:0}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none;padding:0}
+svg.i{display:block;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+section[id]{scroll-margin-top:80px}
+
+/* ---------- Header ---------- */
+.header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border-bottom:1px solid var(--surface-2);box-shadow:0 1px 8px rgba(0,0,0,.03)}
+.header .wrap{height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative}
+.logo{font:600 20px/20px var(--font-head);letter-spacing:-.5px;white-space:nowrap}
+.logo b{font-weight:600;color:var(--green)}
+.nav{display:flex;align-items:center;gap:40px}
+.nav a{font:600 15px/20px var(--font-head);color:var(--muted);padding:4px 0;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s}
+.nav a:hover{color:var(--green)}
+.nav a.active{font-weight:700;font-size:16px;line-height:24px;letter-spacing:-.08px;color:var(--green);border-bottom-color:var(--green);padding:4px 0 6px}
+.actions{display:flex;align-items:center;gap:16px}
+.link-login{font:600 15px/20px var(--font-head);padding:8px 16px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;font:600 15px/20px var(--font-head);white-space:nowrap;transition:filter .15s,transform .1s}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--green);color:#fff;filter:drop-shadow(0 1px 1px rgba(0,0,0,.05))}
+.btn-primary:hover{filter:brightness(1.1) drop-shadow(0 1px 1px rgba(0,0,0,.05))}
+.btn-light{background:#fff;color:#000;filter:drop-shadow(0 1px 1px rgba(0,0,0,.05))}
+.btn-light:hover{background:var(--surface)}
+.header .btn-primary{padding:8px 24px}
+.avatar{width:32px;height:32px;margin-left:4px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center}
+.menu-btn{display:none;width:40px;height:40px;border-radius:8px;align-items:center;justify-content:center;color:#000}
+.menu-btn:hover{background:var(--surface)}
+
+/* ---------- Shared headings ---------- */
+.eyebrow{display:flex;align-items:center;gap:8px;color:var(--green);font:700 11px/16px var(--font-head);letter-spacing:.55px;text-transform:uppercase}
+.h2{font:700 36px/44px var(--font-head);letter-spacing:-.9px}
+.lede{font:400 16px/24px var(--font-body);letter-spacing:-.08px;color:var(--muted)}
+.dot{border-radius:9999px;background:var(--green);flex:none}
+
+/* ---------- Hero ---------- */
+.hero{padding:56px 0 96px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:40px;align-items:center;min-height:428px}
+.hero-copy{grid-column:1/span 6}
+.hero-media{grid-column:7/span 6}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--surface);padding:6px 12px;border-radius:9999px;color:var(--green);font:700 11px/16px var(--font-head);letter-spacing:.55px;text-transform:uppercase;margin-bottom:24px}
+.badge .dot{width:8px;height:8px}
+.h1{font:800 56px/64px var(--font-head);letter-spacing:-1.68px;margin-bottom:16px}
+.h1 span{color:var(--green)}
+.hero-copy .sub{font:400 18px/28px var(--font-body);letter-spacing:-.18px;color:var(--muted);max-width:512px;padding-right:51.84px;margin-bottom:32px}
+.cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.cta .btn-primary{padding:14px 32px}
+.cta .btn-light{padding:14px 28px}
+.metrics{margin-top:40px;padding-top:40px;display:flex;gap:24px}
+.metric{flex:1;min-width:0}
+.metric .num{font:700 24px/32px var(--font-head);letter-spacing:-.48px;position:relative}
+.metric .num small{font:600 13px/18px var(--font-head);letter-spacing:.13px;color:var(--green);margin-left:2px}
+.metric .num.green{color:var(--green)}
+.metric .lbl{font:400 14px/20px var(--font-body);color:var(--muted)}
+.photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);aspect-ratio:572/357.5}
+.photo-img{position:absolute;inset:0;
+  background:
+    url("assets/src-turf-ground-view.png") center/cover no-repeat,
+    linear-gradient(to top,rgba(0,0,0,.38),rgba(0,0,0,0) 50%),
+    linear-gradient(90deg,transparent calc(50% - 1px),rgba(255,255,255,.65) calc(50% - 1px),rgba(255,255,255,.65) calc(50% + 1px),transparent calc(50% + 1px)),
+    repeating-linear-gradient(90deg,#2d8449 0 56px,#34934f 56px 112px);
+}
+.photo-bar{position:absolute;left:16px;right:16px;bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.pill-live{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:9999px;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 1px 2px rgba(0,0,0,.05);font:600 13px/18px var(--font-head);letter-spacing:.13px;color:#000}
+.pill-live .dot{width:8px;height:8px}
+.pill-weather{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;color:#fff;font:700 11px/16px var(--font-head);letter-spacing:.66px;text-transform:uppercase}
+
+/* ---------- Facilities ---------- */
+.facilities{padding:80px 0}
+.facilities .head{display:flex;flex-direction:column;gap:8px;margin-bottom:48px}
+.facilities .lede{max-width:672px}
+.fac-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.fac{background:#fff;border-radius:16px;padding:24px;box-shadow:0 1px 1px rgba(0,0,0,.05);display:flex;flex-direction:column;gap:6.8px;transition:transform .2s,box-shadow .2s}
+.fac:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,30,60,.08)}
+.fac .ic{width:48px;height:48px;border-radius:12px;background:var(--surface-2);color:var(--green);display:flex;align-items:center;justify-content:center}
+.fac h3{font:600 20px/28px var(--font-head);letter-spacing:-.3px;padding-top:13.2px}
+.fac p{font:400 14px/22.75px var(--font-body);color:var(--muted)}
+
+/* ---------- Book a slot ---------- */
+.book{padding:80px 0}
+.book .title{margin-bottom:40px}
+.book .title .eyebrow{margin-bottom:8px}
+.book .title .lede{padding-top:8px}
+.book-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px;align-items:start}
+.book-left{grid-column:1/span 8;display:flex;flex-direction:column;gap:24px;min-width:0}
+.book-right{grid-column:9/span 4;position:sticky;top:104px}
+.card{background:#fff;border-radius:16px;padding:20px;box-shadow:0 1px 1px rgba(0,0,0,.05);display:flex;flex-direction:column;gap:16px}
+.card .cap{font:700 11px/16px var(--font-head);letter-spacing:.66px;text-transform:uppercase;color:var(--muted)}
+.row-between{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pitches{display:flex;gap:12px}
+.pitch{flex:1;min-width:0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px;border-radius:12px;background:#fff;color:#000;text-align:left;box-shadow:0 1px 1px rgba(0,0,0,.05);transition:background .15s,box-shadow .15s}
+.pitch:hover{box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.pitch .l{display:flex;align-items:center;gap:12px;min-width:0}
+.pitch .t{font:700 20px/25px var(--font-head);letter-spacing:-.3px}
+.pitch .s{font:400 12px/16px var(--font-body);letter-spacing:-.08px;color:var(--muted)}
+.pitch .tag{align-self:flex-start;margin-top:4px;padding:1.5px 8px;border-radius:9999px;background:var(--surface-2);font:600 12px/16px var(--font-body);letter-spacing:-.08px;color:var(--muted);white-space:nowrap}
+.pitch.on{background:var(--green);color:#fff}
+.pitch.on .s{color:#fff;opacity:.9}
+.pitch.on .tag{background:rgba(255,255,255,.2);color:#fff}
+.dates{display:flex;gap:8px}
+.date{flex:1 1 0;min-width:72px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 8px;border-radius:12px;background:#fff;color:var(--muted);transition:background .15s}
+.date:hover{background:var(--surface)}
+.date .dw{font:500 11px/24px var(--font-body);letter-spacing:.55px;text-transform:uppercase}
+.date .dn{font:600 20px/28px var(--font-body);letter-spacing:-.08px;color:#000;padding-top:4px}
+.date .dm{font:400 10px/24px var(--font-body);letter-spacing:-.08px}
+.date.on{background:var(--green);color:#fff}
+.date.on .dw{font-weight:600}
+.date.on .dn{color:#fff}
+.date.on .dm{opacity:.75}
+.slots-card{padding:24px}
+.slots-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:16px}
+.slots-head h3{font:700 20px/28px var(--font-head);letter-spacing:-.3px}
+.slots-head p{font:400 14px/20px var(--font-body);color:var(--muted);margin-top:.5px}
+.legend{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:6px;font:500 12px/16px var(--font-body);letter-spacing:-.08px;color:var(--muted)}
+.legend i{width:12px;height:12px;border-radius:2px;display:block}
+.legend .sel{font-weight:600;color:#000}
+.legend .bk{color:rgba(62,74,61,.6)}
+.slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.slot{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:68px;padding:12px 8px;border-radius:12px;background:#fff;box-shadow:0 1px 1px rgba(0,0,0,.05);text-align:center;transition:transform .15s,background .15s,box-shadow .15s}
+.slot:hover:not(:disabled){box-shadow:0 3px 10px rgba(0,107,44,.18);background:#f6fbf7}
+.slot .tm{font:600 12px/16px var(--font-body);letter-spacing:-.08px;color:#000;white-space:nowrap}
+.slot .st{display:flex;align-items:center;gap:4px;padding-top:4px;font:500 11px/24px var(--font-body);letter-spacing:-.08px;color:var(--green);white-space:nowrap}
+.slot.on{background:var(--green);transform:scale(1.02)}
+.slot.on .tm,.slot.on .st{color:#fff;font-weight:600}
+.slot:disabled{background:var(--surface-2);opacity:.6;cursor:not-allowed;box-shadow:none}
+.slot:disabled .tm{font-weight:500;color:rgba(62,74,61,.4);text-decoration:line-through}
+.slot:disabled .st{font-weight:600;color:rgba(62,74,61,.4);letter-spacing:.55px;text-transform:uppercase;gap:4px}
+.slots-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:16px;font:400 12px/16px var(--font-body);letter-spacing:-.08px;color:var(--muted)}
+.slots-foot .l{display:flex;align-items:center;gap:4px}
+.slots-foot b{font-weight:600}
+
+.summary{background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);display:flex;flex-direction:column;gap:24px}
+.summary .top{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px}
+.summary .top h3{font:700 20px/28px var(--font-head);letter-spacing:-.3px}
+.live{padding:4px 10px;border-radius:9999px;background:var(--surface-2);color:var(--green);font:700 11px/16px var(--font-head);letter-spacing:.66px;text-transform:uppercase}
+.details{background:var(--surface);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:13.5px}
+.details .r{display:flex;align-items:center;justify-content:space-between;gap:12px;font:400 14px/20px var(--font-body);letter-spacing:-.08px;color:var(--muted)}
+.details .r .k{display:flex;align-items:center;gap:6px}
+.details .r .k svg{color:var(--muted)}
+.details .r .v{font-weight:600;color:#000;text-align:right}
+.details .r .v.g{color:var(--green)}
+.total{padding-top:16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.total .a{padding-top:5.5px}
+.total .a small{display:block;font:700 12px/16px var(--font-head);letter-spacing:.72px;text-transform:uppercase;color:var(--muted);margin-bottom:2.5px}
+.total .a strong{display:block;font:800 24px/32px var(--font-head);letter-spacing:-.48px}
+.total .n{font:400 12px/16px var(--font-body);letter-spacing:-.08px;color:var(--muted);text-align:right}
+.form{display:flex;flex-direction:column;gap:12px}
+.form label{font:600 12px/16px var(--font-head);letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+.form input{width:100%;padding:10px 14px;border:1px solid transparent;border-radius:8px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05);font:400 14px/20px var(--font-body);letter-spacing:-.08px;color:#000}
+.form input.err{border-color:#ba1a1a}
+.confirm{width:100%;padding:14px;border-radius:12px}
+.policy{display:flex;align-items:flex-start;justify-content:center;gap:10px;text-align:left;font:400 12px/16px var(--font-body);letter-spacing:-.08px;color:var(--muted);margin-top:-8px}
+.policy svg{margin-top:2px}
+
+/* ---------- Bookings ---------- */
+.bookings{padding:80px 0}
+.bookings .head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.bookings .head .eyebrow{margin-bottom:4px}
+.bookings .head .h2{padding-top:4px;margin-bottom:4px}
+.signed{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:8px;background:var(--surface);color:var(--green);font:600 14px/20px var(--font-body);letter-spacing:-.08px}
+.table-card{background:#fff;border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.05);overflow:hidden}
+.table-scroll{overflow-x:auto}
+table{width:100%;min-width:900px;border-collapse:collapse;table-layout:fixed}
+thead{background:var(--surface)}
+th{padding:16px 24px;text-align:left;font:700 12px/16px var(--font-head);letter-spacing:.72px;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+th:last-child,td:last-child{text-align:right}
+tbody tr+tr{border-top:1px solid var(--surface-2)}
+td{padding:16px 24px;font:400 14px/20px var(--font-body);letter-spacing:-.08px;color:var(--muted);vertical-align:middle}
+td.id{font:700 14px/20px var(--font-mono);color:#000;padding-top:24px;padding-bottom:24px}
+td .pn{display:inline-flex;align-items:center;gap:6px;font-weight:500;color:#000}
+td .pn i{width:8px;height:8px;border-radius:9999px;background:var(--green);display:block}
+td .pn i.s{background:var(--slate)}
+td .d1{font-weight:500;color:#000}
+td .d2{font-size:12px;line-height:16px}
+td.amt{font-weight:600;color:#000}
+.status{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;font:600 12px/16px var(--font-body);letter-spacing:-.08px}
+.status.ok{background:rgba(0,107,44,.1);color:var(--green)}
+.status.ok i{width:6px;height:6px;border-radius:9999px;background:var(--green);display:block}
+.status.done{background:var(--surface-2);color:var(--muted)}
+.row-btn{display:inline-flex;align-items:center;gap:4px;font:600 13px/18px var(--font-head);letter-spacing:.13px;color:var(--muted)}
+.row-btn.g{color:var(--green)}
+.row-btn:hover{text-decoration:underline}
+
+/* ---------- Footer ---------- */
+.footer{margin-top:40px;background:#fff;border-top:1px solid var(--surface-2)}
+.footer .wrap{padding-top:40px;padding-bottom:40px}
+.foot-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:40px;padding-bottom:24px}
+.foot-brand{grid-column:1/span 5}
+.foot-contact{grid-column:6/span 4}
+.foot-loc{grid-column:10/span 3}
+.brand-row{display:flex;align-items:center;gap:8px}
+.brand-ic{width:32px;height:32px;border-radius:8px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center}
+.brand-name{font:600 20px/28px var(--font-head);letter-spacing:-.3px}
+.brand-name b{font-weight:600;color:var(--green)}
+.foot-brand p{font:400 14px/20px var(--font-body);color:var(--muted);max-width:384px;padding-top:12px}
+.foot h4{margin:0 0 8px;font:700 11px/16px var(--font-head);letter-spacing:.66px;text-transform:uppercase}
+.foot-li{display:flex;align-items:center;gap:8px;font:400 14px/20px var(--font-body);color:var(--muted);margin-bottom:4px}
+.foot-li.top{align-items:flex-start}
+.foot-li svg{color:var(--green)}
+.foot-bottom{border-top:1px solid var(--surface-2);padding-top:25px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font:400 14px/20px var(--font-body);color:var(--muted)}
+.foot-bottom nav{display:flex;gap:24px;flex-wrap:wrap}
+.foot-bottom a:hover{color:var(--green)}
+
+/* ---------- Toast ---------- */
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,24px);opacity:0;pointer-events:none;z-index:100;background:#0b1c30;color:#fff;padding:12px 20px;border-radius:12px;font:500 14px/20px var(--font-body);box-shadow:0 10px 30px rgba(0,0,0,.25);transition:opacity .25s,transform .25s;max-width:calc(100vw - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast.bad{background:#93000a}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1100px){
+  :root{--pad:32px}
+  .nav{gap:24px}
+  .fac-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .book-left{grid-column:1/-1}
+  .book-right{grid-column:1/-1;position:static}
+  .h1{font-size:48px;line-height:56px}
+}
+@media (max-width:900px){
+  .menu-btn{display:flex}
+  .nav{position:absolute;top:80px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--surface-2);padding:8px var(--pad) 16px;box-shadow:0 12px 24px rgba(0,0,0,.06);display:none}
+  .nav.open{display:flex}
+  .nav a{padding:12px 0;border-bottom:1px solid var(--surface)}
+  .nav a.active{padding:12px 0}
+  .link-login{display:none}
+  .actions{margin-left:auto}
+  .hero{padding:40px 0 56px}
+  .hero-grid{grid-template-columns:1fr;min-height:0;gap:32px}
+  .hero-copy,.hero-media{grid-column:1/-1}
+  .hero-media{order:2}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-brand{grid-column:1/-1}
+  .foot-contact,.foot-loc{grid-column:auto}
+  .pitches{flex-direction:column}
+}
+@media (max-width:640px){
+  :root{--pad:20px}
+  .header .btn-primary{padding:8px 16px}
+  .h1{font-size:40px;line-height:48px;letter-spacing:-1.2px}
+  .h2{font-size:30px;line-height:38px}
+  .hero-copy .sub{padding-right:0;font-size:16px;line-height:26px}
+  .metrics{gap:12px;padding-top:24px}
+  .metric .num{font-size:20px}
+  .facilities,.book,.bookings{padding:56px 0}
+  .fac-grid{grid-template-columns:1fr}
+  .dates{overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+  .date{flex:0 0 76px;min-width:76px}
+  .slots{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .slots-card{padding:20px}
+  .foot-grid{grid-template-columns:1fr}
+  .foot-bottom{flex-direction:column;align-items:flex-start}
+  .pill-live{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- Icon sprite (stroke icons) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-cloud-sun" viewBox="0 0 24 24"><path d="M12 2v2M4.93 4.93l1.41 1.41M20 12h2M17.66 6.34l1.41-1.41M16 12a4 4 0 0 0-7.7-1.5A4.5 4.5 0 0 0 7.5 19H17a3.5 3.5 0 0 0-1-7z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-user-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M6.17 18.8a7 7 0 0 1 11.66 0"/></symbol>
+    <symbol id="i-medkit" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 11v6M9 14h6"/></symbol>
+    <symbol id="i-parking" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></symbol>
+    <symbol id="i-water" viewBox="0 0 24 24"><path d="M12 2.7S5 10.2 5 15a7 7 0 0 0 14 0c0-4.8-7-12.3-7-12.3z"/><path d="M9 15a3 3 0 0 0 3 3"/></symbol>
+    <symbol id="i-shower" viewBox="0 0 24 24"><path d="M4 4a4 4 0 0 1 4-1h2a8 8 0 0 1 8 8v1H4V4zM8 17v2M12 17v2M16 17v2M4 14h14"/></symbol>
+    <symbol id="i-pitch" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M12 5v14"/><circle cx="12" cy="12" r="2.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24"><path d="M10 2h4M12 14l3-3"/><circle cx="12" cy="14" r="8"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l3-2 2.5 2L12 20l2.5 2L17 20l3 2V2l-3 2-2.5-2L12 4 9.5 2 7 4 4 2zM8 9h8M8 13h8"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  </defs>
+</svg>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="wrap">
+    <a href="#home" class="logo" aria-label="SRC Turf home">SRC <b>TURF</b></a>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#home" class="active" data-target="home">Home</a>
+      <a href="#facilities" data-target="facilities">View Facilities</a>
+      <a href="#book" data-target="book">Book a Slot</a>
+      <a href="#bookings" data-target="bookings">My Bookings</a>
+    </nav>
+    <div class="actions">
+      <a href="#" class="link-login" id="loginLink">Login / Sign Up</a>
+      <a href="#book" class="btn btn-primary">Book Now</a>
+      <span class="avatar" aria-hidden="true"><svg class="i" width="12" height="12"><use href="#i-user"/></svg></span>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav"><svg class="i" width="22" height="22"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="badge"><span class="dot"></span>Open Daily • 06:00 AM – 11:00 PM</div>
+        <h1 class="h1">SRC <span>Turf</span></h1>
+        <p class="sub">Book your playing slot online. High-grade synthetic turf ready for fast-paced matches with friends, community games, and team training.</p>
+        <div class="cta">
+          <a href="#book" class="btn btn-primary"><svg class="i" width="15" height="16.67"><use href="#i-calendar"/></svg>Book a Slot</a>
+          <a href="#facilities" class="btn btn-light"><svg class="i" width="16.67" height="16.67"><use href="#i-grid"/></svg>View Facilities</a>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="num">2</div><div class="lbl">Full-Size Pitches</div></div>
+          <div class="metric"><div class="num">60<small>min</small></div><div class="lbl">Slot Duration</div></div>
+          <div class="metric"><div class="num green">₹500</div><div class="lbl">Standard Rate</div></div>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="photo" role="img" aria-label="SRC Turf ground view">
+          <div class="photo-img"></div>
+          <div class="photo-bar">
+            <span class="pill-live"><span class="dot"></span>Pitch 1 &amp; Pitch 2 Available Today</span>
+            <span class="pill-weather"><svg class="i" width="13.33" height="13.33"><use href="#i-cloud-sun"/></svg>All-Weather Surface</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FACILITIES ================= -->
+<section class="facilities" id="facilities">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow"><svg class="i" width="15" height="15"><use href="#i-grid"/></svg>Ground Overview</div>
+      <h2 class="h2">Facilities</h2>
+      <p class="lede">SRC Turf offers two playing pitches for your games and practice sessions. Book your preferred time slot online.</p>
+    </div>
+    <div class="fac-grid">
+      <article class="fac">
+        <div class="ic"><svg class="i" width="24" height="24"><use href="#i-medkit"/></svg></div>
+        <h3>First Aid</h3>
+        <p>Medical emergency kit available on-site with certified staff assistance for pitch injuries.</p>
+      </article>
+      <article class="fac">
+        <div class="ic"><svg class="i" width="24" height="24"><use href="#i-parking"/></svg></div>
+        <h3>Parking</h3>
+        <p>Dedicated player and visitor parking space located directly adjacent to both pitch entrances.</p>
+      </article>
+      <article class="fac">
+        <div class="ic"><svg class="i" width="24" height="24"><use href="#i-water"/></svg></div>
+        <h3>Drinking Water</h3>
+        <p>Filtered, fresh drinking water dispensers stationed by pitch sidelines and player benches.</p>
+      </article>
+      <article class="fac">
+        <div class="ic"><svg class="i" width="24" height="24"><use href="#i-shower"/></svg></div>
+        <h3>Washroom</h3>
+        <p>Clean changing rooms, individual showers, and sanitized restrooms cleaned between match rounds.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOK A SLOT ================= -->
+<section class="book" id="book">
+  <div class="wrap">
+    <div class="title">
+      <div class="eyebrow"><svg class="i" width="13.5" height="15"><use href="#i-bolt"/></svg>Instant Reservation</div>
+      <h2 class="h2">Book a Slot</h2>
+      <p class="lede">Select your pitch, pick a date, and reserve your 60-minute playing time.</p>
+    </div>
+
+    <div class="book-grid">
+      <div class="book-left">
+        <!-- 1. Pitch -->
+        <div class="card">
+          <div class="cap">Select Playing Surface</div>
+          <div class="pitches" id="pitches" role="group" aria-label="Playing surface">
+            <button type="button" class="pitch on" data-pitch="Pitch 1" aria-pressed="true">
+              <span class="l">
+                <svg class="i" width="20" height="20"><use href="#i-pitch"/></svg>
+                <span><span class="t" style="display:block">Pitch 1</span><span class="s" style="display:block">West Arena • Fast Rebound</span></span>
+              </span>
+              <span class="tag">Active</span>
+            </button>
+            <button type="button" class="pitch" data-pitch="Pitch 2" aria-pressed="false">
+              <span class="l">
+                <svg class="i" width="20" height="20"><use href="#i-pitch"/></svg>
+                <span><span class="t" style="display:block">Pitch 2</span><span class="s" style="display:block">East Arena • High Traction</span></span>
+              </span>
+              <span class="tag">Switch</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Dates -->
+        <div class="card">
+          <div class="row-between">
+            <div class="cap">Select Date (Next 7 Days)</div>
+            <div style="font:600 13px/18px var(--font-head);letter-spacing:.13px" id="dateLabel">Today, Oct 25</div>
+          </div>
+          <div class="dates" id="dates" role="group" aria-label="Date"></div>
+        </div>
+
+        <!-- 3. Slots -->
+        <div class="card slots-card">
+          <div class="slots-head">
+            <div>
+              <h3>Available 60-Minute Slots</h3>
+              <p>Pick an available slot to book your 1-hour session.</p>
+            </div>
+            <div class="legend" aria-hidden="true">
+              <span><i style="background:rgba(0,107,44,.2)"></i>Available</span>
+              <span class="sel"><i style="background:var(--green)"></i>Selected</span>
+              <span class="bk"><i style="background:var(--surface-2)"></i>Booked</span>
+            </div>
+          </div>
+          <div class="slots" id="slots"></div>
+          <div class="slots-foot">
+            <span class="l"><svg class="i" width="13.33" height="13.33"><use href="#i-info"/></svg>Standard session length: exactly 60 minutes</span>
+            <span>Rate: <b>₹500</b> / slot</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <aside class="book-right" aria-label="Booking summary">
+        <div class="summary">
+          <div class="top"><h3>Booking Summary</h3><span class="live">Live</span></div>
+          <div class="details">
+            <div class="r"><span class="k"><svg class="i" width="15" height="15"><use href="#i-pitch"/></svg>Pitch</span><span class="v" id="sPitch">Pitch 1</span></div>
+            <div class="r"><span class="k"><svg class="i" width="13.5" height="15"><use href="#i-calendar"/></svg>Date</span><span class="v" id="sDate">Today, Oct 25</span></div>
+            <div class="r"><span class="k"><svg class="i" width="15" height="15"><use href="#i-clock"/></svg>Time Slot</span><span class="v g" id="sTime">06:00 PM – 07:00 PM</span></div>
+            <div class="r"><span class="k"><svg class="i" width="15" height="15"><use href="#i-timer"/></svg>Duration</span><span class="v">60 Minutes (1 hr)</span></div>
+            <div class="total">
+              <div class="a"><small>Total Payable</small><strong>₹500</strong></div>
+              <div class="n">Inclusive of lights<br>and facility access</div>
+            </div>
+          </div>
+          <form class="form" id="bookForm" novalidate>
+            <label for="pName">Player / Organizer Name</label>
+            <input id="pName" name="name" type="text" value="Marcus Sterling" autocomplete="name">
+            <label for="pPhone">Phone Number</label>
+            <input id="pPhone" name="phone" type="tel" value="+1 (555) 349-8812" autocomplete="tel">
+          </form>
+          <button type="submit" form="bookForm" class="btn btn-primary confirm" id="confirmBtn"><svg class="i" width="16.67" height="16.67"><use href="#i-check-circle"/></svg>Confirm &amp; Reserve Slot</button>
+          <p class="policy"><svg class="i" width="10.67" height="14"><use href="#i-shield"/></svg><span>Zero cancellation charges up to 6 hours before kickoff.</span></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MY BOOKINGS ================= -->
+<section class="bookings" id="bookings">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow"><svg class="i" width="13.5" height="15"><use href="#i-receipt"/></svg>Booking History</div>
+        <h2 class="h2">My Bookings</h2>
+        <p class="lede">View your confirmed and past playing sessions.</p>
+      </div>
+      <span class="signed"><svg class="i" width="15" height="15"><use href="#i-user-circle"/></svg>Signed in as Marcus</span>
+    </div>
+
+    <div class="table-card">
+      <div class="table-scroll">
+        <table>
+          <colgroup>
+            <col style="width:14.43%"><col style="width:12.02%"><col style="width:19.04%"><col style="width:13.02%"><col style="width:11.87%"><col style="width:16.21%"><col style="width:13.41%">
+          </colgroup>
+          <thead>
+            <tr><th>Booking ID</th><th>Pitch</th><th>Date &amp; Time</th><th>Duration</th><th>Amount</th><th>Status</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="bookingRows">
+            <tr>
+              <td class="id">#SRC-8821</td>
+              <td><span class="pn"><i></i>Pitch 1</span></td>
+              <td><div class="d1">Oct 25, 2025</div><div class="d2">06:00 PM – 07:00 PM</div></td>
+              <td>60 mins</td>
+              <td class="amt">₹500</td>
+              <td><span class="status ok"><i></i>Confirmed</span></td>
+              <td><button class="row-btn g" data-act="Receipt"><svg class="i" width="12" height="12"><use href="#i-receipt"/></svg>Receipt</button></td>
+            </tr>
+            <tr>
+              <td class="id">#SRC-8794</td>
+              <td><span class="pn"><i class="s"></i>Pitch 2</span></td>
+              <td><div class="d1">Oct 20, 2025</div><div class="d2">08:00 PM – 09:00 PM</div></td>
+              <td>60 mins</td>
+              <td class="amt">₹500</td>
+              <td><span class="status done">Completed</span></td>
+              <td><button class="row-btn" data-act="Details"><svg class="i" width="13.5" height="15"><use href="#i-eye"/></svg>Details</button></td>
+            </tr>
+            <tr>
+              <td class="id">#SRC-8650</td>
+              <td><span class="pn"><i></i>Pitch 1</span></td>
+              <td><div class="d1">Oct 12, 2025</div><div class="d2">07:00 AM – 08:00 AM</div></td>
+              <td>60 mins</td>
+              <td class="amt">₹500</td>
+              <td><span class="status done">Completed</span></td>
+              <td><button class="row-btn" data-act="Details"><svg class="i" width="13.5" height="15"><use href="#i-eye"/></svg>Details</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand-row">
+          <span class="brand-ic"><svg class="i" width="16.67" height="16.67"><use href="#i-pitch"/></svg></span>
+          <span class="brand-name">SRC <b>TURF</b></span>
+        </div>
+        <p>Professional grade certified synthetic turf. Seamless booking, real-time availability, and tournament grade lighting facilities.</p>
+      </div>
+      <div class="foot-contact">
+        <h4>Contact Info</h4>
+        <div class="foot-li"><svg class="i" width="13.5" height="13.5"><use href="#i-phone"/></svg>+1 (555) 019-2834</div>
+        <div class="foot-li"><svg class="i" width="15" height="12"><use href="#i-mail"/></svg>info@srcturf.example.com</div>
+      </div>
+      <div class="foot-loc">
+        <h4>Location</h4>
+        <div class="foot-li top"><svg class="i" width="12" height="15" style="margin-top:2px"><use href="#i-pin"/></svg>College Road, TIndivanam-604001</div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SRC Turf. All rights reserved.</span>
+      <nav aria-label="Legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Turf Guidelines</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Data (mirrors the Figma design) ---------- */
+  var DATES = [
+    { dw: 'TODAY', d: 25, label: 'Today, Oct 25',  full: 'Oct 25, 2025' },
+    { dw: 'SUN',   d: 26, label: 'Sun, Oct 26',    full: 'Oct 26, 2025' },
+    { dw: 'MON',   d: 27, label: 'Mon, Oct 27',    full: 'Oct 27, 2025' },
+    { dw: 'TUE',   d: 28, label: 'Tue, Oct 28',    full: 'Oct 28, 2025' },
+    { dw: 'WED',   d: 29, label: 'Wed, Oct 29',    full: 'Oct 29, 2025' },
+    { dw: 'THU',   d: 30, label: 'Thu, Oct 30',    full: 'Oct 30, 2025' },
+    { dw: 'FRI',   d: 31, label: 'Fri, Oct 31',    full: 'Oct 31, 2025' }
+  ];
+  var FIRST_HOUR = 6, LAST_HOUR = 22;           // 06:00 AM – 11:00 PM
+  var DEFAULT_BOOKED = [17, 19, 21];            // 05 PM, 07 PM, 09 PM
+  var PRICE_LABEL = '$45';                      // as shown in the design's slot chips
+
+  var state = { pitch: 'Pitch 1', dateIdx: 0, hour: 18, booked: {} };
+
+  /* ---------- Helpers ---------- */
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function hr12(h) { var s = h >= 12 ? 'PM' : 'AM'; var x = h % 12; if (x === 0) x = 12; return pad(x) + ':00 ' + s; }
+  function range(h) { return hr12(h) + ' – ' + hr12(h + 1); }
+  function key() { return state.pitch + '|' + state.dateIdx; }
+  function bookedSet() {
+    var k = key();
+    if (!state.booked[k]) state.booked[k] = DEFAULT_BOOKED.slice();
+    return state.booked[k];
+  }
+  function svg(id, w, h) {
+    var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    s.setAttribute('class', 'i'); s.setAttribute('width', w); s.setAttribute('height', h);
+    var u = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    u.setAttribute('href', '#' + id); s.appendChild(u);
+    return s;
+  }
+  var toastTimer;
+  function toast(msg, bad) {
+    var t = $('#toast');
+    t.textContent = msg;
+    t.className = 'toast show' + (bad ? ' bad' : '');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.className = 'toast'; }, 3200);
+  }
+
+  /* ---------- Render: dates ---------- */
+  function renderDates() {
+    var box = $('#dates');
+    box.innerHTML = '';
+    DATES.forEach(function (d, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'date' + (i === state.dateIdx ? ' on' : '');
+      b.setAttribute('aria-pressed', i === state.dateIdx ? 'true' : 'false');
+      b.innerHTML = '<span class="dw">' + d.dw + '</span><span class="dn">' + d.d + '</span><span class="dm">Oct</span>';
+      b.addEventListener('click', function () {
+        state.dateIdx = i;
+        if (bookedSet().indexOf(state.hour) !== -1) state.hour = null;
+        renderDates(); renderSlots(); renderSummary();
+      });
+      box.appendChild(b);
+    });
+    $('#dateLabel').textContent = DATES[state.dateIdx].label;
+  }
+
+  /* ---------- Render: slots ---------- */
+  function renderSlots() {
+    var box = $('#slots');
+    var booked = bookedSet();
+    box.innerHTML = '';
+    for (var h = FIRST_HOUR; h <= LAST_HOUR; h++) {
+      (function (h) {
+        var isBooked = booked.indexOf(h) !== -1;
+        var isSel = state.hour === h && !isBooked;
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'slot' + (isSel ? ' on' : '');
+        var tm = document.createElement('span'); tm.className = 'tm';
+        var st = document.createElement('span'); st.className = 'st';
+        if (isBooked) {
+          b.disabled = true;
+          tm.textContent = hr12(h);
+          st.appendChild(svg('i-lock', 8.67, 11.38));
+          st.appendChild(document.createTextNode('Booked'));
+          b.setAttribute('aria-label', range(h) + ', booked');
+        } else if (isSel) {
+          tm.textContent = range(h);
+          st.appendChild(svg('i-check', 8.83, 6.51));
+          st.appendChild(document.createTextNode('Selected'));
+          b.setAttribute('aria-pressed', 'true');
+        } else {
+          tm.textContent = range(h);
+          st.textContent = PRICE_LABEL + ' • Available';
+          b.setAttribute('aria-pressed', 'false');
+        }
+        b.appendChild(tm); b.appendChild(st);
+        if (!isBooked) b.addEventListener('click', function () {
+          state.hour = h; renderSlots(); renderSummary();
+        });
+        box.appendChild(b);
+      })(h);
+    }
+  }
+
+  /* ---------- Render: summary ---------- */
+  function renderSummary() {
+    $('#sPitch').textContent = state.pitch;
+    $('#sDate').textContent = DATES[state.dateIdx].label;
+    $('#sTime').textContent = state.hour == null ? 'Select a slot' : range(state.hour);
+  }
+
+  /* ---------- Pitch selection ---------- */
+  $$('#pitches .pitch').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      state.pitch = btn.getAttribute('data-pitch');
+      $$('#pitches .pitch').forEach(function (p) {
+        var on = p === btn;
+        p.classList.toggle('on', on);
+        p.setAttribute('aria-pressed', on ? 'true' : 'false');
+        p.querySelector('.tag').textContent = on ? 'Active' : 'Switch';
+      });
+      if (state.hour != null && bookedSet().indexOf(state.hour) !== -1) state.hour = null;
+      renderSlots(); renderSummary();
+    });
+  });
+
+  /* ---------- Confirm booking ---------- */
+  var nameEl = $('#pName'), phoneEl = $('#pPhone');
+  [nameEl, phoneEl].forEach(function (el) { el.addEventListener('input', function () { el.classList.remove('err'); }); });
+
+  $('#bookForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ok = true;
+    if (nameEl.value.trim().length < 2) { nameEl.classList.add('err'); ok = false; }
+    if (!/^\+?[\d\s()\-]{7,}$/.test(phoneEl.value.trim())) { phoneEl.classList.add('err'); ok = false; }
+    if (state.hour == null) { toast('Please select an available time slot.', true); return; }
+    if (!ok) { toast('Please enter a valid name and phone number.', true); return; }
+
+    var d = DATES[state.dateIdx];
+    var id = '#SRC-' + (8822 + $$('#bookingRows tr').length);
+    bookedSet().push(state.hour);
+
+    var tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td class="id"></td>' +
+      '<td><span class="pn"><i></i></span></td>' +
+      '<td><div class="d1"></div><div class="d2"></div></td>' +
+      '<td>60 mins</td><td class="amt">₹500</td>' +
+      '<td><span class="status ok"><i></i>Confirmed</span></td>' +
+      '<td><button class="row-btn g" data-act="Receipt"></button></td>';
+    tr.children[0].textContent = id;
+    var pn = tr.querySelector('.pn');
+    if (state.pitch === 'Pitch 2') pn.querySelector('i').className = 's';
+    pn.appendChild(document.createTextNode(state.pitch));
+    tr.querySelector('.d1').textContent = d.full;
+    tr.querySelector('.d2').textContent = range(state.hour);
+    var rb = tr.querySelector('.row-btn');
+    rb.appendChild(svg('i-receipt', 12, 12));
+    rb.appendChild(document.createTextNode('Receipt'));
+    $('#bookingRows').insertBefore(tr, $('#bookingRows').firstChild);
+
+    var booked = range(state.hour);
+    state.hour = null;
+    renderSlots(); renderSummary();
+    toast('Booked ' + state.pitch + ' • ' + d.label + ' • ' + booked);
+  });
+
+  /* ---------- Table actions ---------- */
+  $('#bookingRows').addEventListener('click', function (e) {
+    var b = e.target.closest('.row-btn');
+    if (!b) return;
+    var id = b.closest('tr').children[0].textContent;
+    toast(b.getAttribute('data-act') + ' for ' + id + ' will be available soon.');
+  });
+
+  /* ---------- Placeholder login ---------- */
+  $('#loginLink').addEventListener('click', function (e) { e.preventDefault(); toast('Login / Sign Up is not connected in this build.'); });
+  $$('.foot-bottom a').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); }); });
+
+  /* ---------- Mobile nav ---------- */
+  var nav = $('#nav'), menuBtn = $('#menuBtn');
+  menuBtn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  $$('#nav a').forEach(function (a) {
+    a.addEventListener('click', function () { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); });
+  });
+
+  /* ---------- Active nav link on scroll ---------- */
+  var links = $$('#nav a');
+  var sections = links.map(function (l) { return document.getElementById(l.getAttribute('data-target')); });
+  function setActive() {
+    var y = window.scrollY + 120, cur = 0;
+    sections.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
+    links.forEach(function (l, i) { l.classList.toggle('active', i === cur); });
+  }
+  window.addEventListener('scroll', setActive, { passive: true });
+  window.addEventListener('resize', setActive);
+
+  /* ---------- Init ---------- */
+  renderDates(); renderSlots(); renderSummary(); setActive();
+})();
+</script>
+</body>
+</html>
